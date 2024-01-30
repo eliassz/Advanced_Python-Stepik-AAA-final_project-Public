@@ -40,7 +40,7 @@ CROSS = 'X'
 ZERO = 'O'
 
 
-DEFAULT_STATE = [ [FREE_SPACE for _ in range(3) ] for _ in range(3) ]
+DEFAULT_STATE = [[FREE_SPACE for _ in range(3) ] for _ in range(3)]
 
 
 def get_default_state():
@@ -64,7 +64,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     context.user_data['keyboard_state'] = get_default_state()
     keyboard = generate_keyboard(context.user_data['keyboard_state'])
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text(f'X (your) turn! Please, put X to the free place', reply_markup=reply_markup)
+    await update.message.reply_text(f'X your turn! Please, put X to the free place', reply_markup=reply_markup)
     return CONTINUE_GAME
 
 
@@ -110,8 +110,6 @@ async def game(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     reply_markup = InlineKeyboardMarkup(keyboard)
     await query.edit_message_text('Your turn! Please, put X to the free place', reply_markup=reply_markup)
     return CONTINUE_GAME
-
-
 
 
 def won(board: List[List[str]]) -> bool:
