@@ -1,4 +1,5 @@
-from main import get_default_state, won
+from tic_tac_toe_bot.game import won
+from tic_tac_toe_bot.utils import get_default_state
 
 
 def test_won():
